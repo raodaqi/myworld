@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="hahnzhu" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>Demo</title>
+	<link rel="stylesheet" href="/css/parallax.css">
+	<link rel="stylesheet" href="/css/parallax-animation.css">
+	<style>
+	body{
+		background: url("/img/bg.png") center center / cover no-repeat; 
+	}
+	/* custom */
+	section[data-id="1"] {
+		/*background: #3498db;*/
+		background:rgba(0,0,0,0.1);
+	}
+	section[data-id="2"] {
+		/*background: #40d47e;*/
+		background:rgba(0,0,0,0.1);
+	}
+	section[data-id="3"] {
+		/*background-color: #ff8c81;*/
+		background:rgba(0,0,0,0.1);
+	}
+	section[data-id="4"] {
+		/*background-color: #3498db;*/
+		background:rgba(0,0,0,0.1); 
+	}
+	.box1 {
+		width: 100px;
+		height: 200px;
+		background-color: #ecf0f1;
+		position: absolute;
+		left: 160px; top: 126px;
+	}
+	.box2 {
+		width: 200px;
+		height: 100px;
+		background-color: #8e44ad;
+		position: absolute;
+		left: 60px; top: 226px;
+	}
+	.box3 {
+		width: 100px;
+		height: 100px;
+		background-color: #34495e;
+		position: absolute;
+		left: 160px; top: 226px;
+	}
+	.box4 {
+		width: 50px;
+		height: 50px;
+		background-color: #e74c3c;
+		position: absolute;
+		left: 185px; top: 250px;
+	}
+	.pcs,.cherry,.wenwo{
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		display: block;
+		width: 80%;
+		max-width: 320px;
+	}
+	.wenwo{
+		width:50%; 
+	}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="pages">
+
+		<!-- 第一屏 -->
+		<section class="page">
+			<img src="/img/pcs.png" class="pcs" alt="">
+		</section>
+
+        <!-- 第二屏 -->
+		<section class="page">
+			<img src="/img/wenwo.png" class="wenwo" alt="">
+		</section>
+
+        <!-- 第三屏 -->
+		<section class="page">
+			<img src="/img/cherry.png" class="cherry" alt="">
+		</section>
+
+		<!-- 第四屏 -->
+		<!-- <section class="page">
+			<div class="box1" data-animation="fadeIn"></div>
+			<div class="box2" data-animation="fadeOut" data-delay="800"></div>
+		</section> -->
+
+	</div>
+</div>
+<script src="/js/zepto.min.js"></script>
+<script src="/js/parallax.js"></script>
+<script>
+	
+	$('.pages').parallax({
+		direction: 'vertical', 	// horizontal (水平翻页)
+		swipeAnim: 'default', 	// cover (切换效果)
+		drag:      true,		// 是否允许拖拽 (若 false 则只有在 touchend 之后才会翻页)
+		loading:   false,		// 有无加载页
+		indicator: true,		// 有无指示点
+		arrow:     true,		// 有无指示箭头
+		/*
+		 * 翻页后立即执行
+		 * {int} 		index: 第几页
+		 * {DOMElement} element: 当前页节点
+		 * {String}		directation: forward(前翻)、backward(后翻)、stay(保持原页)
+		 */
+		onchange: function(index, element, direction) {
+			// code here...
+			// console.log(index, element, direction);
+		},
+		/*
+		 * 横竖屏检测
+		 * {String}		orientation: landscape、protrait
+		 */
+		orientationchange: function(orientation) {
+			// console.log(orientation);
+		}
+	});
+
+	$(".cherry").on("click",function(){
+		window.location.href="http://android.myapp.com/myapp/detail.htm?apkName=link.sharein.cherry";
+	})
+
+</script>
+</body>
+</html>
